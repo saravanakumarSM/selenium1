@@ -1,0 +1,91 @@
+                     MULTIPLE DROPDOWN
+
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class AdactinHotel {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\ADMIN\\eclipse-workspace\\Selenium\\Driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver ();
+		driver.get("https://adactinhotelapp.com/");
+		driver.manage().window().maximize();
+		//WebElement btnnewuser = driver.findElement(By.xpath("//a[text()='New User Register Here']"));
+		//btnnewuser.click();
+		//WebElement namepass = driver.findElement(By.id("username"));
+		//namepass.sendKeys("saravanakumar1678");
+		//WebElement passwordpass = driver.findElement(By.id("password"));
+		//passwordpass.sendKeys("saran123");
+		//WebElement repasswordpass = driver.findElement(By.id("re_password"));
+		//repasswordpass.sendKeys("saran123");
+	//	WebElement fullnamepass = driver.findElement(By.id("full_name"));
+		//fullnamepass.sendKeys("saravanakumar");
+	//	WebElement mailpass = driver.findElement(By.id("email_add"));
+	  //  mailpass.sendKeys("saravanakumar1635@gmail.com");
+		WebElement usernamepass = driver.findElement(By.id("username"));
+		usernamepass.sendKeys("saravanakumar1678");
+		WebElement passwordpass = driver.findElement(By.id("password"));
+		passwordpass.sendKeys("saran123");
+		WebElement btnclcklogin = driver.findElement(By.id("login"));
+		btnclcklogin.click();
+		WebElement droplocation = driver.findElement(By.id("location"));
+		Select s = new Select(droplocation);
+		s.selectByVisibleText("London");
+		WebElement drophotel = driver.findElement(By.id("hotels"));
+		Select s1 = new Select(drophotel);
+		s1.selectByVisibleText("Hotel Hervey");
+		WebElement droproomtype = driver.findElement(By.id("room_type"));
+		Select s2 = new Select(droproomtype);
+		s2.selectByValue("Super Deluxe");
+		WebElement dropnoofroom = driver.findElement(By.id("room_nos"));
+		Select s3 = new Select (dropnoofroom);
+		s3.selectByIndex(2);
+		WebElement dropprsns = driver.findElement(By.id("adult_room"));
+		Select s4 = new Select (dropprsns);
+		s4.selectByValue("4");
+		WebElement dropchild = driver.findElement(By.id("child_room"));
+		Select s5 = new Select (dropchild);
+		s5.selectByValue("2");
+		WebElement clcksrch = driver.findElement(By.id("Submit"));
+		clcksrch.click();
+		WebElement clckradiobtn = driver.findElement(By.id("radiobutton_0"));
+		clckradiobtn.click();
+		WebElement clckcntnu = driver.findElement(By.id("continue"));
+		clckcntnu.click();
+		WebElement passname = driver.findElement(By.id("first_name"));
+		passname.sendKeys("saravanakumar");
+		WebElement passname1 = driver.findElement(By.id("last_name"));
+		passname1.sendKeys("santhanam");
+		WebElement passadd = driver.findElement(By.id("address"));
+		passadd.sendKeys("saravanakumar s m "
+				+ "s/o k.santhanam"
+				+ "collectoratepost"
+				+ "ramanathapuram"
+				+ "623503");
+		WebElement passcardno = driver.findElement(By.id("cc_num"));
+		passcardno.sendKeys("8778545423232112");
+		WebElement dropcardtype = driver.findElement(By.id("cc_type"));
+		Select s6 = new Select (dropcardtype);
+		s6.selectByValue("VISA");
+		WebElement dropmnth = driver.findElement(By.id("cc_exp_month"));
+		Select s7 = new Select (dropmnth);
+		s7.selectByValue("3");
+		WebElement dropyear = driver.findElement(By.id("cc_exp_year"));
+		Select s8 = new Select (dropyear);
+		s8.selectByValue("2022");
+	    WebElement passcvv = driver.findElement(By.id("cc_cvv"));
+	    passcvv.sendKeys("543");
+	    WebElement clckrgstr = driver.findElement(By.id("book_now"));
+	    clckrgstr.click();
+	    Thread.sleep(6000);
+	    WebElement ordrid = driver.findElement(By.id("order_no"));
+	   String print = ordrid.getAttribute("value");
+	   System.out.println(print);
+}
+}
